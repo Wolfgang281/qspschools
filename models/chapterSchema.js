@@ -4,6 +4,7 @@ let chapterSchema = new Schema({
   title: {
     type: String,
     required: true,
+    unique: true,
   },
   content: {
     type: Schema.Types.ObjectId,

@@ -4,6 +4,7 @@ let courseSchema = new Schema({
   title: {
     type: String,
     required: true,
+    unique: true,
   },
   chapter: {
     type: Schema.Types.ObjectId,
