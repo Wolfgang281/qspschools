@@ -9,7 +9,7 @@ let {
 
 let router = Router();
 
-router.post("/addContent", addContent);
+router.post("/add-content", addContent);
 router.get("/all-content", allContent);
 router.get("/single-content/:id", fetchSingleContent);
 router.patch("/update-content/:id", updateContent);
