@@ -7,7 +7,7 @@ let chapterSchema = new Schema({
   },
   content: {
     type: Schema.Types.ObjectId,
-    ref: "School",
+    ref: "Content",
   },
   status: {
     type: String,

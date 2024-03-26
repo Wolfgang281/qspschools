@@ -1,13 +1,13 @@
-let schoolSchema = require("../models/schoolSchema");
+let courseSchema = require("../models/courseSchema");
 
-exports.addContent = async (req, res) => {
-  let payload = await schoolSchema.create(req.body);
-  res.status(201).json({ success: true, message: "Content added successfully", payload });
+exports.addCourse = async (req, res) => {
+  let payload = await courseSchema.create(req.body);
+  res.status(201).json({ success: true, message: "course added successfully", payload });
 };
 
-exports.allContent = async (req, res) => {
+exports.allCourse = async (req, res) => {
   try {
-    let payload = await schoolSchema.find({});
+    let payload = await courseSchema.find({}).populate("chapter");
     res.status(200).json({
       status: true,
       payload,
@@ -18,9 +18,9 @@ exports.allContent = async (req, res) => {
   }
 };
 
-exports.fetchSingleContent = async (req, res) => {
+exports.fetchSingleCourse = async (req, res) => {
   try {
-    let payload = await schoolSchema.findOne({ _id: req.params.id });
+    let payload = await courseSchema.findOne({ _id: req.params.id }).populate("chapter");
     res.status(200).json({
       success: true,
       payload,
@@ -31,9 +31,9 @@ exports.fetchSingleContent = async (req, res) => {
   }
 };
 
-exports.updateContent = async (req, res) => {
+exports.updateCourse = async (req, res) => {
   try {
-    let updatePayload = await schoolSchema.updateOne(
+    let updatePayload = await courseSchema.updateOne(
       { _id: req.params.id },
       {
         $set: req.body,
@@ -52,9 +52,9 @@ exports.updateContent = async (req, res) => {
   }
 };
 
-exports.deleteContent = async (req, res) => {
+exports.deleteCourse = async (req, res) => {
   try {
-    await schoolSchema.deleteOne({ _id: req.params.id });
+    await courseSchema.deleteOne({ _id: req.params.id });
     res.status(203).json({
       success: true,
       message: "successfully deleted ",

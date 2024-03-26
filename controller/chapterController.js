@@ -6,16 +6,15 @@ exports.addChapter = async (req, res) => {
 };
 
 exports.allChapter = async (req, res) => {
-  let payload = await chapterSchema.find({});
+  let payload = await chapterSchema.find({}).populate("content");
   res.status(200).json({ success: true, message: "successfully fetching one data", payload });
 };
 
 exports.singleChapter = async (req, res) => {
-  // Step 1: Set all chapters to "Inactive"
   await chapterSchema.updateMany({}, { $set: { status: "Inactive" } });
 
-  // Step 2: Set the fetched chapter to "Active"
   await chapterSchema.updateOne({ _id: req.params.id }, { $set: { status: "Active" } });
+
   let payload = await chapterSchema.findOne({ _id: req.params.id }).populate("content");
   res.status(200).json({ success: true, message: "successfully fetching one data", payload });
 };

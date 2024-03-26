@@ -15,6 +15,4 @@ router.get("/single-chapter/:id", singleChapter);
 router.patch("/update-chapter/:id", updateChapter);
 router.delete("/delete-chapter/:id", deleteChapter);
 
-// router.patch("/update-photo/:id", upload.single("photo"), updatePhoto);
-
 module.exports = router;
