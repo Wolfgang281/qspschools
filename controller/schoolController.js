@@ -63,27 +63,3 @@ exports.deleteContent = async (req, res) => {
     console.log(err);
   }
 };
-
-// exports.updatePhoto = async(req,res) =>{
-//     try{
-
-//        let file = req.file;
-//        let payloadWithPhoto = await schoolSchema.updateOne(
-//         {
-//             _id:req.params.id
-//         },
-//          {
-//             $set: {photo:file}
-//         },
-//         {
-//             new :false
-//         }
-//         );
-
-//         res.status(201).json({success:true, message:"successfully photo updated", payloadWithPhoto})
-//     }
-//         catch(err)
-//         {
-//             console.log(err);
-//         }
-//     }

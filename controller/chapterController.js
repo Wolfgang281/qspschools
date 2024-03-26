@@ -21,11 +21,6 @@ exports.singleChapter = async (req, res) => {
 };
 
 exports.updateChapter = async (req, res) => {
-  // Step 1: Set all chapters to "Inactive"
-  await chapterSchema.updateMany({}, { $set: { status: "Inactive" } });
-
-  // Step 2: Set the fetched chapter to "Active"
-  await chapterSchema.updateOne({ _id: req.params.id }, { $set: { status: "Active" } });
   try {
     let updatePayload = await chapterSchema.updateOne(
       { _id: req.params.id },

@@ -17,9 +17,3 @@ let chapterSchema = new Schema({
 });
 
 module.exports = model("Chapter", chapterSchema);
-
-//  git status
-// git add .
-// git commit -m "message"
-// git push origin master
-//
