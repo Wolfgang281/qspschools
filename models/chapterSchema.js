@@ -9,6 +9,17 @@ let chapterSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "School",
   },
+  status: {
+    type: String,
+    enum: ["Active", "Inactive"],
+    default: "Inactive",
+  },
 });
 
 module.exports = model("Chapter", chapterSchema);
+
+//  git status
+// git add .
+// git commit -m "message"
+// git push origin master
+//
