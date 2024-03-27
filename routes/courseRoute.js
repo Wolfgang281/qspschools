@@ -5,7 +5,9 @@ const {
   fetchSingleCourse,
   updateCourse,
   deleteCourse,
+  getParticularChapter,
 } = require("../controller/courseController");
+const { allChapter } = require("../controller/chapterController");
 
 let router = Router();
 

@@ -1,3 +1,4 @@
+const chapterSchema = require("../models/chapterSchema");
 let courseSchema = require("../models/courseSchema");
 
 exports.addCourse = async (req, res) => {
@@ -7,7 +8,7 @@ exports.addCourse = async (req, res) => {
 
 exports.allCourse = async (req, res) => {
   try {
-    let payload = await courseSchema.find({}).populate("chapter");
+    let payload = await courseSchema.find({});
     res.status(200).json({
       status: true,
       payload,
@@ -20,7 +21,7 @@ exports.allCourse = async (req, res) => {
 
 exports.fetchSingleCourse = async (req, res) => {
   try {
-    let payload = await courseSchema.findOne({ _id: req.params.id }).populate("chapter");
+    let payload = await courseSchema.findOne({ _id: req.params.id });
     res.status(200).json({
       success: true,
       payload,

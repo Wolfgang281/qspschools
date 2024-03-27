@@ -6,10 +6,6 @@ let courseSchema = new Schema({
     required: true,
     unique: true,
   },
-  chapter: {
-    type: Schema.Types.ObjectId,
-    ref: "Chapter",
-  },
 });
 
 module.exports = model("Course", courseSchema);

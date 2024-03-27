@@ -1,4 +1,5 @@
 const chapterSchema = require("../models/chapterSchema");
+const courseSchema = require("../models/courseSchema");
 
 exports.addChapter = async (req, res) => {
   let payload = await chapterSchema.create(req.body);
@@ -16,6 +17,11 @@ exports.singleChapter = async (req, res) => {
   await chapterSchema.updateOne({ _id: req.params.id }, { $set: { status: "Active" } });
 
   let payload = await chapterSchema.findOne({ _id: req.params.id }).populate("content");
+  res.status(200).json({ success: true, message: "successfully fetching one data", payload });
+};
+
+exports.particularCourseChapter = async (req, res) => {
+  let payload = await chapterSchema.find({ courseID: req.params.id });
   res.status(200).json({ success: true, message: "successfully fetching one data", payload });
 };
 

@@ -10,6 +10,10 @@ let chapterSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Content",
   },
+  courseID: {
+    type: Schema.Types.ObjectId,
+    ref: "Course",
+  },
   status: {
     type: String,
     enum: ["Active", "Inactive"],
