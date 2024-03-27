@@ -21,7 +21,10 @@ exports.singleChapter = async (req, res) => {
 };
 
 exports.particularCourseChapter = async (req, res) => {
-  let payload = await chapterSchema.find({ courseID: req.params.id });
+  let payload = await chapterSchema
+    .find({ courseID: req.params.id })
+    .select("-courseID")
+    .populate("content");
   res.status(200).json({ success: true, message: "successfully fetching one data", payload });
 };
 
